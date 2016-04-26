@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery图片旋转180度切换代码</title>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.banner.js"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a, img {
+            border: 0;
+        }
+
+        body {
+            font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+        }
+
+        .banner {
+            width: 100%;
+            overflow: hidden;
+            height: 470px;
+            position: relative
+        }
+
+        .banList {
+            position: absolute;
+            left: 50%;
+            margin-left: -960px;
+            height: 470px
+        }
+
+        .banList li {
+            height: 470px;
+            opacity: 0;
+            position: absolute;
+            transform: rotate(180deg);
+            transition: transform 1s linear 0s, opacity 1.5s linear 0s;
+            z-index: 1;
+        }
+
+        .banList li.active {
+            opacity: 1;
+            transform: rotate(0deg);
+            z-index: 2;
+        }
+
+        .fomW {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            height: 20px;
+            z-index: 9;
+            width: 1000px;
+            margin-left: -500px
+        }
+
+        .jsNav {
+            text-align: center;
+        }
+
+        .jsNav a {
+            display: inline-block;
+            background: #fff;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .jsNav a.current {
+            background: #fc8f0f;
+            cursor: pointer
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="banner">
+    <ul class="banList">
+        <li class="active"><a href="##"><img src="images/img1.jpg"></a></li>
+        <li class=""><a href="##"><img src="images/img2.jpg"></a></li>
+        <li class=""><a href="##"><img src="images/img3.jpg"></a></li>
+        <li class=""><a href="##"><img src="images/banner2.jpg"></a></li>
+    </ul>
+    <div class="fomW">
+        <div class="jsNav">
+            <a href="javascript:;" class="trigger current"></a>
+            <a href="javascript:;" class="trigger"></a>
+            <a href="javascript:;" class="trigger "></a>
+            <a href="javascript:;" class="trigger "></a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".banner").swBanner();
+    });
+</script>
+
+
+</body>
+</html>
